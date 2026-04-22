@@ -2,8 +2,14 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
 
 const Sugestao = sequelize.define("Sugestao", {
-  titulo: DataTypes.STRING,
-  descricao: DataTypes.TEXT,
+  titulo: { 
+    type: DataTypes.STRING,
+    allowNull: false 
+  },
+  descricao: { 
+    type: DataTypes.TEXT,
+    allowNull: false 
+  },
   setor: DataTypes.STRING,
   beneficio: DataTypes.TEXT,
 

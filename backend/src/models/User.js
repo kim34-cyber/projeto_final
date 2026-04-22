@@ -2,14 +2,23 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
 
 const User = sequelize.define("User", {
-  nome: DataTypes.STRING,
+  nome: { 
+    type: DataTypes.STRING,
+    allowNull: false 
+  },
   email: {
     type: DataTypes.STRING,
-    unique: true
+    unique: true,
+    allowNull: false
   },
-  senha: DataTypes.STRING,
+  senha: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
   perfil: {
-    type: DataTypes.ENUM("funcionario", "gestor")
+    // 👇 ADICIONADO "admin" para bater com o seu Front-end e Middlewares
+    type: DataTypes.ENUM("funcionario", "gestor", "admin"),
+    allowNull: false
   }
 });
 
